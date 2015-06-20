@@ -1,7 +1,7 @@
 # OneDrive SDK
 
 ## Quickstart
-Register your app for more info see 
+Register your app for more info see [Registration](#Registration)
 
 ```java
 OneDriveSDK sdk = OneDriveFactory.createOneDriveSDK(
@@ -63,7 +63,7 @@ String refreshToken = sdk.getRefreshToken();
 ## Featuers
 
 ### TextFile Configuration
-#### Credentials
+#### [Credentials](http://tawalaya.github.io/OneDriveJavaSDK/docs/de/tuberlin/onedrivesdk/common/OneDriveCredentials.html)
 Instead of manually providing the clientID and clientSecret every time you create the SDK handle and store them within your source code you can use a *credentails.prperties* file. The File needs to be stored in the resource folder of your application.
 
 It should look somewhat like that:
@@ -90,11 +90,11 @@ After the application went through the  authentication steps described [here](#r
 
 ### Offered Operations
 <!-- TODO add JDOC URLs -->
-SDK:
+[SDK](http://tawalaya.github.io/OneDriveJavaSDK/docs/de/tuberlin/onedrivesdk/OneDriveSDK.html):
 * get file or folder by id or path
     The SDK provides multiple methods to get ether a file or folder by its path relative to / (the root folder) or by its unique id witch onedrive generates.
 
-File/Folder:
+[File](http://tawalaya.github.io/OneDriveJavaSDK/docs/de/tuberlin/onedrivesdk/file/OneFile.html)/[Folder](http://tawalaya.github.io/OneDriveJavaSDK/docs/de/tuberlin/onedrivesdk/folder/OneFolder.html):
 * traverse folders 
     Each folder object has a getChildren() and getChildFolder() method to list all available children and or folder this can be used to move to lower level of the file system. each folder also has the getParentFolder() method witch can be used to move up.
 * get metadata
@@ -116,5 +116,5 @@ Blocking Operations:
 
 
 ### Error handling 
-There are two exceptions that can occur while using the SDK. The one that can occur most often is the OneDriveException. This exception will be thrown in most cases if the API refused a command send by the SDK. Please look for solutions on the developer side of [Microsoft](https://dev.onedrive.com/) for explanations. The other exception that can occur can be the 
-OneDriveAuthenticationException this will be thrown if the session that the SDK is using is no longer valid. Ether use the `sdk.authenticateWithRefreshToken(sdk.getRefreshToken())` or make sure to enable the [automatic refresh](#automatic-refresh)
+There are two exceptions that can occur while using the SDK. The one that can occur most often is the [OneDriveException](http://tawalaya.github.io/OneDriveJavaSDK/docs/de/tuberlin/onedrivesdk/OneDriveException.html). This exception will be thrown in most cases if the API refused a command send by the SDK. Please look for solutions on the developer side of [Microsoft](https://dev.onedrive.com/) for explanations. The other exception that can occur can be the 
+[OneDriveAuthenticationException](http://tawalaya.github.io/OneDriveJavaSDK/docs/de/tuberlin/onedrivesdk/networking/OneDriveAuthenticationException.html) this will be thrown if the session that the SDK is using is no longer valid. Ether use the `sdk.authenticateWithRefreshToken(sdk.getRefreshToken())` or make sure to enable the [automatic refresh](#automatic-refresh)
