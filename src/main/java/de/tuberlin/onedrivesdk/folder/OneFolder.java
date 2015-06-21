@@ -11,7 +11,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
-
+/**
+ * This Interface provides all Methods to handle a Folder
+ *
+ */
 public interface OneFolder {
 
     /**

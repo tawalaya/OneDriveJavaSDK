@@ -4,7 +4,10 @@ import de.tuberlin.onedrivesdk.OneDriveException;
 import de.tuberlin.onedrivesdk.folder.OneFolder;
 
 import java.io.IOException;
-
+/**
+ * This Interface provides all Method to handle a specific Drive
+ *
+ */
 public interface OneDrive {
 
     String getId();
