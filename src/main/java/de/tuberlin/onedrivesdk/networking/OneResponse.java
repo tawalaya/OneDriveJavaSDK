@@ -2,6 +2,9 @@ package de.tuberlin.onedrivesdk.networking;
 
 import java.util.List;
 
+/**
+ * Wrapper Interface for HTTP Responses
+ */
 public interface OneResponse {
 
 	/**

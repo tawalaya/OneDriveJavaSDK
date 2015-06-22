@@ -31,6 +31,9 @@ import java.util.concurrent.Future;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Example Client for testing the OneDrive SDK
+ */
 public class ConsoleClient {
     private static OneFolder currentFolder;
     private final String html_response = "HTTP/1.x 200 OK\n" +

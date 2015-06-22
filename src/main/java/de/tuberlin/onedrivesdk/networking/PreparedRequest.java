@@ -3,6 +3,9 @@ package de.tuberlin.onedrivesdk.networking;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Representation of a HTTP Request
+ */
 public class PreparedRequest {
 
     private String method;

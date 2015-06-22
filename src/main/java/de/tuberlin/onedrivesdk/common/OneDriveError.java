@@ -6,7 +6,6 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
- * Created by Andi on 20.05.2015.
  * Data object for json transport
  */
 public class OneDriveError {

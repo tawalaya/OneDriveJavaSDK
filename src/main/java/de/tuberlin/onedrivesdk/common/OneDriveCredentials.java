@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.util.Properties;
 
 /**
- * Created by Andi on 29.05.2015.
  * Loads the clientId and the clientSecret from a properties file.
  */
 public class OneDriveCredentials {

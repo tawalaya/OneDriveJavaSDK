@@ -5,6 +5,9 @@ import com.squareup.okhttp.Response;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Wrapper for OkHTTP Responses  received by the ConcreteOneDriveSDK
+ */
 public class ConcreteOneResponse implements OneResponse {
 	private Response response;
 	private byte[] body;

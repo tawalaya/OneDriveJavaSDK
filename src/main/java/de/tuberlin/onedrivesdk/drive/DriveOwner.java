@@ -1,7 +1,7 @@
 package de.tuberlin.onedrivesdk.drive;
 
 /**
- * Created by Andi on 05.05.2015.
+ * Data object for DriveOwner
  */
 public class DriveOwner {
     public DriveUser user;
