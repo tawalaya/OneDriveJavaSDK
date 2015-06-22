@@ -31,7 +31,7 @@ A console client with several command can be found in de.tuberlin.client.Console
 4. A development authentication token can be obtained on [https://dev.onedrive.com/auth/msa_oauth.htm](OneDrive authentication). 
 
 ## Installation
-<!--  TODO MAVEN / GITHUB -->
+Download our lates release [here](/releases) 
 
 ## Recommended CodeFlow for user authentication
  The first time a new user uses your application he or she needs to go to the authentication URL. The following code gets that URL:
