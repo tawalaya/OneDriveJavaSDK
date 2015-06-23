@@ -1,7 +1,6 @@
 package de.tuberlin.onedrivesdk.common;
 
 /**
- * Created by Andi on 10.05.2015.
  * The parent folder reference of an item. Used for JSON transport.
  */
 public class ParentReference {

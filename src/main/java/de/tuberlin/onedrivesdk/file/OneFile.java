@@ -10,7 +10,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
-
+/**
+ * This Interface provides all Methods to handle a File
+ *
+ */
 public interface OneFile {
 
     /**

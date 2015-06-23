@@ -23,7 +23,6 @@ import java.util.List;
 
 /**
  * The root class of all files and folder types that can be accessed through this sdk.
- * @author timmeey
  */
 public abstract class OneItem {
 

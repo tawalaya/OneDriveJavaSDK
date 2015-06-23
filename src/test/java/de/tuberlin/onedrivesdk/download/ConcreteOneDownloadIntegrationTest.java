@@ -1,4 +1,4 @@
-package de.tuberlin.one.download;
+package de.tuberlin.onedrivesdk.download;
 
 import com.google.common.hash.HashCode;
 import com.google.common.hash.Hashing;

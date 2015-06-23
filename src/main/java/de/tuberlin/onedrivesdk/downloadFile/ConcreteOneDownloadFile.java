@@ -12,6 +12,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
+/**
+ * Implementation of OneDownloadFile
+ * Blocking download operation
+ */
 public class ConcreteOneDownloadFile implements OneDownloadFile {
 
     private static final Logger logger = LogManager.getLogger(ConcreteOneDownloadFile.class);

@@ -24,7 +24,7 @@ public class ConcreteOneUploadFileIntegrationTest {
 			IllegalAccessException, IllegalArgumentException,
 			InvocationTargetException, NoSuchFieldException, SecurityException, OneDriveException, IOException, InterruptedException {
 		OneDriveSDK api = TestSDKFactory.getInstance();
-		File file = new File("uploadTest.jpg");
+		File file = new File("src/test/resources/uploadTest.jpg");
 		OneFolder folder = api.getRootFolder();
 		OneUploadFile upload = folder.uploadFile(file);
 		//Future<OneFile> futureUpload = executor.submit(upload);

@@ -1,7 +1,6 @@
 package de.tuberlin.onedrivesdk.common;
 
 /**
- * Created by Sebastian on 27.04.2015.
  * The different scopes for using the OneDrive API. These scopes are used in the authentication process.
  */
 public enum OneDriveScope {

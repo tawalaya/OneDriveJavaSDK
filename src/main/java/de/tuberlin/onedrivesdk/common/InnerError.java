@@ -1,7 +1,6 @@
 package de.tuberlin.onedrivesdk.common;
 
 /**
- * Created by Andi on 20.05.2015.
  * Data object for json transport
  */
 public class InnerError {

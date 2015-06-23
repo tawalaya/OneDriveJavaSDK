@@ -8,6 +8,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Callable;
 
+/**
+ * This Interface provides all Methods to (resumable) upload a File 
+ * @author timmeey
+ *
+ */
 public interface OneUploadFile extends Callable<OneFile> {
 
 	//http://onedrive.github.io/items/upload_large_files.htm

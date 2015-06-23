@@ -1,7 +1,7 @@
 package de.tuberlin.onedrivesdk.drive;
 
 /**
- * Created by Andi on 11.05.2015.
+ * Data Object for drive qouta
  */
 public class DriveQuota {
     private long deleted = 0;

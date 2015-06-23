@@ -1,7 +1,6 @@
 package de.tuberlin.onedrivesdk.common;
 
 /**
- * Created by Andi on 28.05.2015.
  * Wrapper class for json transport.
  */
 public class OneDestinationItem {

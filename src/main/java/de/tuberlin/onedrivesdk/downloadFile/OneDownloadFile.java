@@ -5,7 +5,10 @@ import de.tuberlin.onedrivesdk.networking.OneDriveAuthenticationException;
 
 import java.io.File;
 import java.io.IOException;
-
+/**
+ * This Interface provides all Methods to handle a File download
+ *
+ */
 public interface OneDownloadFile {
 
     /**

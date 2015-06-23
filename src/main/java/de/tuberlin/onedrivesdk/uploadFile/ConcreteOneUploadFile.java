@@ -20,6 +20,9 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+/**
+ * Implementation of OneUploadFile, blocking operation
+ */
 public class ConcreteOneUploadFile implements OneUploadFile {
 
     private static final int chunkSize = 1024 * 1024; // (1MB = 1024kb*1024byte)

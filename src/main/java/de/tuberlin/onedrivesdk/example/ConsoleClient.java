@@ -31,6 +31,9 @@ import java.util.concurrent.Future;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Example Client for testing the OneDrive SDK
+ */
 public class ConsoleClient {
     private static OneFolder currentFolder;
     private final String html_response = "HTTP/1.x 200 OK\n" +
@@ -40,7 +43,7 @@ public class ConsoleClient {
             "Content-Type: text/html; charset=UTF-8\n" +
             "Vary: Accept-Encoding, Cookie, User-Agent\n" +
             "\n" +
-            "<!DOCTYPE html><html><head><title>This Message will autodistroy in 10 seconds</title></head><body><h1 id='shit'></h1><script type='text/javascript'>var x=location.search;document.getElementById(\"shit\").innerHTML=x.substr(x.indexOf(\"code=\")+5);/script></body></html>";
+            "<!DOCTYPE html><html><head><title>This Message will autodestroy itself in 10 seconds</title></head><body><h1 id='shit'></h1><script type='text/javascript'>var x=location.search;document.getElementById(\"shit\").innerHTML=x.substr(x.indexOf(\"code=\")+5);/script></body></html>";
     ExecutorService executor = Executors.newFixedThreadPool(5);
     private OneDriveSDK api;
     private Map<String, OneFile> currentFolderFiles = Maps.newHashMap();
