@@ -119,3 +119,7 @@ Blocking Operations:
 ### Error handling 
 There are two exceptions that can occur while using the SDK. The one that can occur most often is the [OneDriveException](http://tawalaya.github.io/OneDriveJavaSDK/docs/de/tuberlin/onedrivesdk/OneDriveException.html). This exception will be thrown in most cases if the API refused a command send by the SDK. Please look for solutions on the developer side of [Microsoft](https://dev.onedrive.com/) for explanations. The other exception that can occur is the 
 [OneDriveAuthenticationException](http://tawalaya.github.io/OneDriveJavaSDK/docs/de/tuberlin/onedrivesdk/networking/OneDriveAuthenticationException.html). This exception will be thrown if the session that the SDK is using is no longer valid. Ether use the `sdk.authenticateWithRefreshToken(sdk.getRefreshToken())` or make sure to enable the [automatic refresh](#automatic-refresh)
+
+## Additional Information
+* for more information about availible classes and methods visit the [javadoc pages](http://tawalaya.github.io/OneDriveJavaSDK/docs/)
+* for more information about the underling service visit the [dev.onedrive.com](https://dev.onedrive.com/README.htm) site.
