@@ -21,14 +21,15 @@ OneFolder rootFolder = sdk.getRootFolder();
 System.out.println(rootFolder);
 ```
 
-<!--A console client with several command can be found in de.tuberlin.client.ConsoleClient.-->
+A console client with several command can be found in de.tuberlin.onedrivesdk.example.ConsoleClient.
 
 ## Registration
-1. Register your client application on [https://onedrive.live.com/](https://onedrive.live.com/)
+1. Register your client application on [Mirosoft Developers](http://go.microsoft.com/fwlink/p/?LinkId=193157)
 2. The drive is created at the first login. Login into your account in the web browser, otherwise you will get an authentication error if you try to run the SDK with your credentials.
     - The user have to be logged in at least once to use your application.  
-3. (optional) Register a website at [https://onedrive.live.com/](OneDrive) if you want to use this SDK in a web app. Otherwise you can register http://localhost.
+3. (optional) Register a website  if you want to use this SDK in a web app. Otherwise you can register http://localhost.
 4. A development authentication token can be obtained on [OneDrive authentication](https://dev.onedrive.com/auth/msa_oauth.htm). 
+5. More details can be found [here](https://dev.onedrive.com/app-registration.htm)
 
 ## Installation
 Download our latest release [here](https://github.com/tawalaya/OneDriveJavaSDK/releases) 
