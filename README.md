@@ -34,6 +34,29 @@ A console client with several command can be found in de.tuberlin.onedrivesdk.ex
 ## Installation
 Download our latest release [here](https://github.com/tawalaya/OneDriveJavaSDK/releases) 
 
+Alternatively you can use maven. We host a maven artifact on github. The following code snippet can be used to for dependency management with maven.
+```xml
+...
+<repositories>
+    <repository>
+        <id>de.tuberlin</id>
+        <url>https://raw.github.com/tawalaya/onedrivejavasdk/mvn-repo/</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+        </snapshots>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>de.tuberlin</groupId>
+        <artifactId>onedrivesdk</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+</dependencies>
+...
+```
 ## Recommended CodeFlow for user authentication
  The first time a new user uses your application he or she needs to go to the authentication URL. The following code gets that URL:
  
@@ -123,3 +146,6 @@ There are two exceptions that can occur while using the SDK. The one that can oc
 ## Additional Information
 * for more information about availible classes and methods visit the [javadoc pages](http://tawalaya.github.io/OneDriveJavaSDK/docs/)
 * for more information about the underling service visit the [dev.onedrive.com](https://dev.onedrive.com/README.htm) site.
+
+## History
+This project was developed at TU Berlin during the [Cloud Prototyping](http://www.ise.tu-berlin.de/menue/teaching/summer_term_2015/cloud_prototyping/parameter/en/) course in the summer term of 2015 from [Tim Hinkes](https://github.com/Timmeey), [Andreas Salzmann](https://github.com/andi3) and [Sebastian Werner](https://github.com/tawalaya) under the supervision of [Markus Klems](http://www.ise.tu-berlin.de/menue/team/markus_klems_dipl-wi-ing/parameter/en/).
