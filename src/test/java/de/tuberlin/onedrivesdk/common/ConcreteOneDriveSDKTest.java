@@ -1,22 +1,86 @@
 package de.tuberlin.onedrivesdk.common;
 
+import com.google.common.hash.HashCode;
+import com.google.common.hash.Hashing;
+import com.google.common.io.Files;
 import de.tuberlin.onedrivesdk.OneDriveException;
+import de.tuberlin.onedrivesdk.OneDriveFactory;
 import de.tuberlin.onedrivesdk.OneDriveSDK;
+import de.tuberlin.onedrivesdk.downloadFile.OneDownloadFile;
 import de.tuberlin.onedrivesdk.drive.OneDrive;
 import de.tuberlin.onedrivesdk.file.OneFile;
 import de.tuberlin.onedrivesdk.folder.OneFolder;
 import de.tuberlin.onedrivesdk.uploadFile.OneUploadFile;
-import de.tuberlin.onedrivesdk.OneDriveFactory;
 import org.json.simple.parser.ParseException;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class ConcreteOneDriveSDKTest {
+
+    @Test
+    public void uploadBigFile() throws IOException, OneDriveException, NoSuchAlgorithmException, InterruptedException {
+        OneDriveSDK api = this.connect();
+
+        int fileLength = 10000;
+        String fileName = "src/test/resources/uploadTest.big";
+        String targetPath = "/IntegrationTesting/FolderForUploads";
+        String downloadDestination = "src/test/resources/uploadTest_download.big";
+
+        File localFile = new File(fileName);
+        File destinationFile = new File(downloadDestination);
+
+        this.generateFile(fileName, fileLength);
+
+        HashCode sourceHash = Files.hash(localFile, Hashing.sha1());
+
+        OneFolder targetFolder = api.getFolderByPath(targetPath);
+        final OneUploadFile upload = targetFolder.uploadFile(localFile);
+
+        upload.startUpload();
+
+        Thread.sleep(2000);
+
+        OneFile remoteFile = api.getFileByPath("/IntegrationTesting/FolderForUploads/" + localFile.getName());
+        Assert.assertEquals(sourceHash.toString().toUpperCase(), remoteFile.getSHA1Hash());
+
+        OneDownloadFile downloadedFile = remoteFile.download(destinationFile);
+        downloadedFile.startDownload();
+
+        HashCode downloadedHash = Files.hash(destinationFile, Hashing.sha1());
+
+        if (!localFile.delete())
+            System.err.println("Local file could not be deleted.");
+
+        if (!destinationFile.delete())
+            System.err.println("Downloaded file could not be deleted.");
+
+        Assert.assertEquals(sourceHash.toString().toUpperCase(), downloadedHash.toString().toUpperCase());
+    }
+
+    private void generateFile(String fileName, long fileLength) throws IOException {
+        File f = new File(fileName);
+
+        OutputStream out = new FileOutputStream(f);
+
+        byte[] randomBytes = new byte[(int) (1024 * fileLength)];
+        new Random().nextBytes(randomBytes);
+        out.write(randomBytes);
+
+        try {
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Test
     public void testGetAllDrives() throws IOException, OneDriveException {

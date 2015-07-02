@@ -5,8 +5,6 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
-import de.tuberlin.onedrivesdk.folder.OneFolder;
-import de.tuberlin.onedrivesdk.networking.*;
 import de.tuberlin.onedrivesdk.OneDriveException;
 import de.tuberlin.onedrivesdk.OneDriveSDK;
 import de.tuberlin.onedrivesdk.drive.ConcreteOneDrive;
@@ -14,6 +12,8 @@ import de.tuberlin.onedrivesdk.drive.OneDrive;
 import de.tuberlin.onedrivesdk.file.ConcreteOneFile;
 import de.tuberlin.onedrivesdk.file.OneFile;
 import de.tuberlin.onedrivesdk.folder.ConcreteOneFolder;
+import de.tuberlin.onedrivesdk.folder.OneFolder;
+import de.tuberlin.onedrivesdk.networking.*;
 import de.tuberlin.onedrivesdk.uploadFile.UploadSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -391,14 +391,12 @@ public class ConcreteOneDriveSDK implements OneDriveSDK {
         if (isCompleteURL(preparedRequest.getPath())) {
             url = preparedRequest.getPath();
         } else {
-            url = String.format("%s%s?access_token=%s", this.baseUrl,
-                    preparedRequest.getPath(), session.getAccessToken());
+            url = String.format("%s%s?access_token=%s", this.baseUrl, preparedRequest.getPath(), session.getAccessToken());
         }
 
         logger.debug(String.format("making request to %s",url));
 
-        Request.Builder builder = new Request.Builder().method(
-                preparedRequest.getMethod(), body).url(url);
+        Request.Builder builder = new Request.Builder().method(preparedRequest.getMethod(), body).url(url);
 
         for (String key : preparedRequest.getHeader().keySet()) {
             builder.addHeader(key, preparedRequest.getHeader().get(key));
@@ -408,8 +406,7 @@ public class ConcreteOneDriveSDK implements OneDriveSDK {
         builder.header("Authorization", "bearer " + session.getAccessToken());
         Request request = builder.build();
 
-        Response getDrivesResponse = session.getClient().newCall(request)
-                .execute();
+        Response getDrivesResponse = session.getClient().newCall(request).execute();
         return new ConcreteOneResponse(getDrivesResponse);
     }
 

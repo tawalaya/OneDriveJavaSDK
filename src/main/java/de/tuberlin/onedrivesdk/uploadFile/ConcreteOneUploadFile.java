@@ -25,7 +25,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class ConcreteOneUploadFile implements OneUploadFile {
 
-    private static final int chunkSize = 1024 * 1024 * 100; // (1MB = 1024kb*1024byte)
+    private static final int chunkSize = 320 * 1024 * 30; // (use a multiple value of 320KB, best practice of dev.onedrive)
     private static final Logger logger = LogManager.getLogger(ConcreteOneUploadFile.class);
     private static final Gson gson = new Gson();
     private final ReentrantLock shouldRun = new ReentrantLock(true);
@@ -98,19 +98,19 @@ public class ConcreteOneUploadFile implements OneUploadFile {
 			} else {
 				// optimistic cast, assuming the last bit of the file is
 				// never bigger than MAXINT
-				bytes = new byte[(int) (randFile.length() - randFile
-						.getFilePointer())];
-			}
+                bytes = new byte[(int) (randFile.length() - randFile.getFilePointer())];
+            }
 			long start = randFile.getFilePointer();
 			randFile.readFully(bytes);
 
 			uploadChunk.setBody(bytes);
-			uploadChunk.addHeader(
-					"Content-Range",
-					String.format("bytes %s-%s/%s", start,
-							randFile.getFilePointer() - 1, randFile.length()));
-			logger.trace("Uploading chunk {} - {}",randFile.getFilePointer() - 1,randFile.length());
-			response = api.makeRequest(uploadChunk);
+            uploadChunk.addHeader("Content-Length", (randFile.getFilePointer() - start) + "");
+            uploadChunk.addHeader(
+                    "Content-Range",
+                    String.format("bytes %s-%s/%s", start, randFile.getFilePointer() - 1, randFile.length()));
+
+            logger.trace("Uploading chunk {} - {}", start, randFile.getFilePointer() - 1);
+            response = api.makeRequest(uploadChunk);
 			if (response.wasSuccess()) {
 				if (response.getStatusCode()==200 || response.getStatusCode()==201) { // if last chunk upload was successful end the
 					finished = true;
@@ -125,8 +125,8 @@ public class ConcreteOneUploadFile implements OneUploadFile {
 			} else {
 				logger.info("Something went wrong while uploading last chunk. Trying to fetch upload status from server to retry");
 				logger.trace(response.getBodyAsString());
-				response = api.makeRequest(this.uploadUrl,
-                        PreparedRequestMethod.GET, null);
+                response = api.makeRequest(this.uploadUrl, PreparedRequestMethod.GET, null);
+
                 if (response.wasSuccess()) {
                     uploadSession = gson.fromJson(
 							response.getBodyAsString(), UploadSession.class);
@@ -137,15 +137,13 @@ public class ConcreteOneUploadFile implements OneUploadFile {
 					canceled=true;
 					logger.info("Something went wrong while uploading. Was unable to fetch the currentUpload session from the Server");
 					throw new OneDriveException(
-							String.format(
-									"Could not get current upload status from Server, aborting. Message was: %s",
-									response.getBodyAsString()));
-				}
+                            String.format("Could not get current upload status from Server, aborting. Message was: %s", response.getBodyAsString()));
+                }
 			}
 			shouldRun.unlock();
 		}
 
-		logger.info("finished");
+        logger.info("finished upload");
 
 		finishedFile.setApi(api);
 		return finishedFile;
