@@ -4,8 +4,8 @@
   <artifactId>onedrivesdk</artifactId>
   <versioning>
     <versions>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>0.0.2-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20150625110857</lastUpdated>
+    <lastUpdated>20150702130640</lastUpdated>
   </versioning>
 </metadata>
