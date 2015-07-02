@@ -25,19 +25,17 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class ConcreteOneUploadFile implements OneUploadFile {
 
-    private static final int chunkSize = 1024 * 1024; // (1MB = 1024kb*1024byte)
-	private static final Logger logger = LogManager.getLogger(ConcreteOneUploadFile.class);
-
+    private static final int chunkSize = 1024 * 1024 * 100; // (1MB = 1024kb*1024byte)
+    private static final Logger logger = LogManager.getLogger(ConcreteOneUploadFile.class);
+    private static final Gson gson = new Gson();
     private final ReentrantLock shouldRun = new ReentrantLock(true);
     private File fileToUpload;
     private ConcreteOneDriveSDK api;
     private boolean canceled = false;
 	private boolean finished = false;
-
 	private UploadSession uploadSession;
 	private RandomAccessFile randFile;
 	private String uploadUrl ="";
-    private static final Gson gson = new Gson();
 
 	public ConcreteOneUploadFile(ConcreteOneFolder parentFolder,
 			File fileToUpload, ConcreteOneDriveSDK api) throws IOException, OneDriveAuthenticationException {
