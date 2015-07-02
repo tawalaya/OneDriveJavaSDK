@@ -2,23 +2,23 @@
 <metadata modelVersion="1.1.0">
   <groupId>de.tuberlin</groupId>
   <artifactId>onedrivesdk</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.0.3-SNAPSHOT</version>
   <versioning>
     <snapshot>
-      <timestamp>20150702.130640</timestamp>
+      <timestamp>20150702.170625</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
-    <lastUpdated>20150702130640</lastUpdated>
+    <lastUpdated>20150702170625</lastUpdated>
     <snapshotVersions>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>0.0.2-20150702.130640-1</value>
-        <updated>20150702130640</updated>
+        <value>0.0.3-20150702.170625-1</value>
+        <updated>20150702170625</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>0.0.2-20150702.130640-1</value>
-        <updated>20150702130640</updated>
+        <value>0.0.3-20150702.170625-1</value>
+        <updated>20150702170625</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
