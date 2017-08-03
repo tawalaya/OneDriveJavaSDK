@@ -136,14 +136,15 @@ public class ConcreteOneUploadFile implements OneUploadFile {
 				} else {
 					canceled=true;
 					logger.info("Something went wrong while uploading. Was unable to fetch the currentUpload session from the Server");
-					throw new OneDriveException(
+                    randFile.close();
+                    throw new OneDriveException(
                             String.format("Could not get current upload status from Server, aborting. Message was: %s", response.getBodyAsString()));
                 }
 			}
 			shouldRun.unlock();
-			randFile.close();
-		}
 
+		}
+        randFile.close();
         logger.info("finished upload");
 
 		finishedFile.setApi(api);
