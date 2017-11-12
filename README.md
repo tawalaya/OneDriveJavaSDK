@@ -52,7 +52,7 @@ Alternatively you can use maven. We host a maven artifact on github. The followi
     <dependency>
         <groupId>de.tuberlin</groupId>
         <artifactId>onedrivesdk</artifactId>
-        <version>0.0.3-SNAPSHOT</version>
+        <version>0.0.4-SNAPSHOT</version>
     </dependency>
 </dependencies>
 ...
